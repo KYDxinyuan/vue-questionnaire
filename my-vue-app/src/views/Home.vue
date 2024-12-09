@@ -77,6 +77,28 @@ const startSurvey = async () => {
   }
 };
 
+// // 提交问卷
+// const submitSurvey = async () => {
+//   if (!selectedOption.value) {
+//     alert("请选择一个选项！");
+//     return;
+//   }
+
+//   try {
+//     // 提交问卷内容
+//     await axios.post('/api/home/getuserContent', {
+//       userId: userId.value,
+//       selectedOption: selectedOption.value,
+//       selectedOptionText: options.find((opt) => opt.id === selectedOption.value).text,
+//     });
+//     alert("问卷提交成功！");
+//   } catch (error) {
+//     console.error("问卷提交失败：", error);
+//     alert("问卷提交失败，请稍后重试。");
+//   }
+// };
+
+
 // 提交问卷
 const submitSurvey = async () => {
   if (!selectedOption.value) {
@@ -84,12 +106,21 @@ const submitSurvey = async () => {
     return;
   }
 
+  // 获取个性化设置的内容
+  let personalizedSettingsText = '';
+  if (selectedOption.value === 4) {
+    personalizedSettingsText = `（个性化设置：字体大小：${fontSize.value} px，字体：${fontFamily.value}，背景颜色：${backgroundColor.value}，文本颜色：${textColor.value}）`;
+  }
+
+  // 更新选项文本，加入个性化设置内容
+  const selectedOptionTextWithSettings = options.find((opt) => opt.id === selectedOption.value).text + personalizedSettingsText;
+
   try {
-    // 提交问卷内容
+    // 提交问卷内容，包括更新后的选项文本
     await axios.post('/api/home/getuserContent', {
       userId: userId.value,
       selectedOption: selectedOption.value,
-      selectedOptionText: options.find((opt) => opt.id === selectedOption.value).text,
+      selectedOptionText: selectedOptionTextWithSettings // 将个性化设置并入选项文本
     });
     alert("问卷提交成功！");
   } catch (error) {
@@ -97,7 +128,11 @@ const submitSurvey = async () => {
     alert("问卷提交失败，请稍后重试。");
   }
 };
+
+
 </script>
+
+
 
 <template>
   <!-- 封面 -->

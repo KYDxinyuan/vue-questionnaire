@@ -1,26 +1,27 @@
+
+
 package com.kyd.springbootkyd.pojo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true, nullable = false)
     private String userId;
-    private Integer selectedOption;
+
+    private String selectedOption;
+
+
     private String selectedOptionText;
 
-    public User() {
-    }
-
+    // Getters and Setters
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Long id) {
@@ -28,27 +29,26 @@ public class User {
     }
 
     public String getUserId() {
-        return this.userId;
+        return userId;
     }
 
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public Integer getSelectedOption() {
-        return this.selectedOption;
+    public String getSelectedOption() {
+        return selectedOption;
     }
 
-    public void setSelectedOption(Integer selectedOption) {
+    public void setSelectedOption(String selectedOption) {
         this.selectedOption = selectedOption;
     }
 
     public String getSelectedOptionText() {
-        return this.selectedOptionText;
+        return selectedOptionText;
     }
 
     public void setSelectedOptionText(String selectedOptionText) {
         this.selectedOptionText = selectedOptionText;
     }
 }
-
