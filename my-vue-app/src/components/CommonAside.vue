@@ -79,18 +79,18 @@ const list = ref([
         icon: 'location',
         children: [
             {
-                path: '/page1',
-                name: 'page1',
-                label: '页面1',
+                path: '/user-sdt',
+                name: 'user-sdt',
+                label: '用户数据散点图',
                 icon: 'setting',
-                url: 'Page1'
+                url: 'User-std'
             },
             {
-                path: '/page2',
-                name: 'page2',
-                label: '页面2',
+                path: '/user-zt',
+                name: 'user-zt',
+                label: '用户字体分布',
                 icon: 'setting',
-                url: 'Page2'
+                url: 'User-zt'
             }
         ]
     }

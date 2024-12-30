@@ -21,6 +21,16 @@ const routes = [
                 path:'user-analy',
                 name:'user-analy',
                 component:()=>import('@/views/User-analysis.vue'),
+            },
+            {
+                path:'user-sdt',
+                name:'user-sdt',
+                component:()=>import('@/views/User-sdt.vue'),
+            },
+            {
+                path:'user-zt',
+                name:'user-zt',
+                component:()=>import('@/views/User-zt.vue'),
             }
         ]
     },
