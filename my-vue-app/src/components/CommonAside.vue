@@ -74,6 +74,13 @@ const list = ref([
         url: 'User-analysis'
     },
     {
+        path: '/user-zbr',
+        name: 'user-zbr',
+        label: '用户字体背景二维图',
+        icon: 'setting',
+        url: 'User-zbr'
+    },
+    {
         path: '/other',
         label: '其他',
         icon: 'location',

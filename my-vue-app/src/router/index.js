@@ -31,6 +31,11 @@ const routes = [
                 path:'user-zt',
                 name:'user-zt',
                 component:()=>import('@/views/User-zt.vue'),
+            },
+            {
+                path:'user-zbr',
+                name:'user-zbr',
+                component:()=>import('@/views/User-zbr.vue'),
             }
         ]
     },
